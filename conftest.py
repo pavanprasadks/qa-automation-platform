@@ -1,6 +1,7 @@
 import pytest
 
 from pages.login_page import LoginPage
+from pages.dropdown_page import DropdownPage
 
 
 def pytest_addoption(parser):
@@ -22,3 +23,8 @@ def browser_name(request):
 @pytest.fixture
 def login_page(page):
     return LoginPage(page)
+
+
+@pytest.fixture
+def dropdown_page(page):
+    return DropdownPage(page)
