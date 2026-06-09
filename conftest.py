@@ -1,5 +1,7 @@
 import pytest
 
+from pages.login_page import LoginPage
+
 
 def pytest_addoption(parser):
     parser.addoption(
@@ -15,3 +17,8 @@ def browser_name(request):
     return request.config.getoption(
         "--browser-name"
     )
+
+
+@pytest.fixture
+def login_page(page):
+    return LoginPage(page)
