@@ -1,0 +1,31 @@
+[
+    {
+        "test_case": "valid_login",
+        "username": "practice",
+        "password": "SuperSecretPassword!",
+        "expected_message": "You logged into a secure area!",
+        "expected_result": "success"
+    },
+    {
+    "test_case": "invalid_username",
+    "username": "wrongUser",
+    "password": "SuperSecretPassword!",
+    "expected_message": "Your password is invalid!",
+    "expected_result": "failure"
+
+    },
+    {
+        "test_case": "invalid_password",
+        "username": "practice",
+        "password": "WrongPassword",
+        "expected_message": "Your password is invalid!",
+        "expected_result": "failure"
+    },
+    {
+    "test_case": "empty_password",
+    "username": "practice",
+    "password": "",
+    "expected_message": "Your password is invalid!",
+    "expected_result": "failure"
+    }
+]

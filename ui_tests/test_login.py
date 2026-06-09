@@ -1,7 +1,42 @@
-from playwright.sync_api import Page
+import pytest
+
+from playwright.sync_api import Page, expect
+
+from pages.login_page import LoginPage
+from pages.secure_page import SecurePage
+
+from utils.data_loader import load_login_data
 
 
-def test_login_page_loads(page: Page):
-    page.goto("https://practice.expandtesting.com/login")
+login_test_data = load_login_data()
 
-    assert page.title() == "Test Login Page for Automation Testing Practice"
+
+@pytest.mark.parametrize(
+    "test_data",
+    login_test_data,
+    ids=[data["test_case"] for data in login_test_data]
+)
+def test_login(page: Page, test_data):
+
+    login_page = LoginPage(page)
+
+    secure_page = SecurePage(page)
+
+    login_page.navigate()
+   
+    login_page.login(
+        test_data["username"],
+        test_data["password"]
+    )
+
+    expect(
+        login_page.flash_message()
+    ).to_contain_text(
+        test_data["expected_message"]
+    )
+
+    if test_data["expected_result"] == "success":
+
+        expect(page).to_have_url(
+            secure_page.SECURE_URL
+        )   
