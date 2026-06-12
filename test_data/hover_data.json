@@ -1,0 +1,20 @@
+[
+  {
+    "test_case": "user_1",
+    "user_number": "1",
+    "expected_name": "name: user1",
+    "expected_href": "/users/1"
+  },
+  {
+    "test_case": "user_2",
+    "user_number": "2",
+    "expected_name": "name: user2",
+    "expected_href": "/users/2"
+  },
+  {
+    "test_case": "user_3",
+    "user_number": "3",
+    "expected_name": "name: user3",
+    "expected_href": "/users/3"
+  }
+]

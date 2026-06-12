@@ -1,0 +1,12 @@
+[
+  {
+    "test_case": "accept_confirm",
+    "accept": true,
+    "expected_result": "You clicked: Ok"
+  },
+  {
+    "test_case": "dismiss_confirm",
+    "accept": false,
+    "expected_result": "You clicked: Cancel"
+  }
+]
